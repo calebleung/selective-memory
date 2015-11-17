@@ -19,6 +19,12 @@ local DLC_STRINGS =
 		MISSION_COUNT_TOOLTIP = "First mission triggers intro dialog. Other missions can spawn side missions and have different prop/guard/camera positions.",
 	},
 
+	OPTIONS =
+	{
+		ENABLE_LEVEL_SELECT = "Enable level select",
+		ENABLE_LEVEL_SELECT_TIP = "Allows you to play any mission at any time.",
+	},
+
 	ERRORS =
 	{
 		SEED = "Seed must be a 10-digit integer.",
@@ -29,27 +35,3 @@ local DLC_STRINGS =
 }
 
 return DLC_STRINGS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
