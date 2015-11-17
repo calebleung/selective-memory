@@ -22,8 +22,8 @@ local MAP_LOCATIONS = serverdefs.MAP_LOCATIONS
 local function validateSeed( levelSeed )
     -- Seed has to be a number
     local pattern = "^%d$"
-    if levelSeed:match( pattern ) == nil  then
-        return false, STRINGS.SIGNUP.INVALID_EMAIL
+    if levelSeed:match( pattern ) == nil or #levelSeed != 10 then
+        return false, STRINGS.SELECTIVE_MEMORY.ERRORS.SEED
     end
 
     return true
@@ -45,22 +45,31 @@ end
 stateLevelSelect.onClickOk = function( self )
 
     local levelSeed = self.levelSeedBox:getText()
-
     local valid, err = validateSeed( levelSeed )
 
-    --if not valid then
-    --    modalDialog.show( err )
-    --    return
-    --end
-
+    local mapLocation = self.screen.binder.locationCmb:getIndex()
     local situationName = self.screen.binder.situationCmb:getText()
-    if not situationName or #situationName == 0 then
-        modalDialog.show( STRINGS.SIGNUP.NO_COUNTRY )
+    local missionCount = tonumber( self.screen.binder.missionCountCmb:getText() )
+
+
+    if not valid then
+        modalDialog.show( err )
         return
     end
 
-    local mapLocation = self.screen.binder.locationCmb:getIndex()
-    local missionCount = tonumber( self.screen.binder.missionCountCmb:getText() )
+    if not mapLocation or #mapLocation == 0 then
+        modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.LOCATION )
+        return
+    end
+
+    if not situationName or #situationName == 0 then
+        modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.SITUATION )
+        return
+    end
+
+    if not missionCount or #missionCount == 0 then
+        missionCount = 0
+    end
 
     log:write( "Using new level seed..." )
     statemgr.deactivate( self )
