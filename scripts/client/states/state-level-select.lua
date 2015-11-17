@@ -44,7 +44,7 @@ end
 
 stateLevelSelect.onClickOk = function( self )
 
-    local levelSeed = self.emailBox:getText()
+    local levelSeed = self.levelSeedBox:getText()
 
     local valid, err = validateSeed( levelSeed )
 
@@ -93,7 +93,7 @@ stateLevelSelect.onLoad = function ( self, dataPath, suppress_map_intro )
     self.screen = mui.createScreen( "modal-level-select.lua" )
     mui.activateScreen( self.screen )
 
-    self.emailBox = self.screen:findWidget("emailBox")
+    self.levelSeedBox = self.screen:findWidget("levelSeedBox")
 
     for situationName, situationValue in pairs( SITUATIONS ) do
         self.screen.binder.situationCmb:addItem( situationValue.tags[1] )
