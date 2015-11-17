@@ -21,7 +21,7 @@ local MAP_LOCATIONS = serverdefs.MAP_LOCATIONS
 
 local function validateSeed( levelSeed )
     -- Seed has to be a number
-    local pattern = "^%d$"
+    local pattern = "^%d+$"
     if levelSeed:match( pattern ) == nil or #levelSeed ~= 10 then
         return false, STRINGS.SELECTIVE_MEMORY.ERRORS.SEED
     end
@@ -57,7 +57,7 @@ stateLevelSelect.onClickOk = function( self )
         return
     end
 
-    if not mapLocation or #mapLocation == 0 then
+    if not mapLocation then
         modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.LOCATION )
         return
     end
@@ -67,7 +67,7 @@ stateLevelSelect.onClickOk = function( self )
         return
     end
 
-    if not missionCount or #missionCount == 0 then
+    if not missionCount then
         missionCount = 0
     end
 
