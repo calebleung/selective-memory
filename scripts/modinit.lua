@@ -1,8 +1,7 @@
 ---------------------------------------------------------------------
--- Invisible Inc. official DLC.
+-- Selective Memory
 --
--- The function is responsible for initializing the mod and doing whatever
--- the mod needs to do up front.
+-- A level selection mod by Zetty
 --
 
 local util = include( "modules/util" )

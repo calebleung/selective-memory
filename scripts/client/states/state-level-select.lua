@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
--- For level-select mod by Zetty
+-- Selective Memory
 -- Based on state-signup.lua
 -- SPY SOCIETY.
 ----------------------------------------------------------------

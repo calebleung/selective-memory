@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------
--- Invisible Inc. official DLC.
+-- Selective Memory
 --
 
 local DLC_STRINGS =
