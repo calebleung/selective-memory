@@ -139,7 +139,7 @@ widgets =
                 },
                 tooltipHeader =
                 {
-                    str = STRINGS.SELECTIVE_MEMORY.MODAL.LOCATION_TOOLTIP,
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.LOCATION,
                 },
             },
             {
@@ -344,7 +344,7 @@ widgets =
                 },
                 tooltipHeader =
                 {
-                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SITUATION_TOOLTIP,
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SITUATION,
                 },
             },
             {
@@ -451,7 +451,7 @@ widgets =
                 },
                 tooltipHeader =
                 {
-                    str = STRINGS.SELECTIVE_MEMORY.MODAL.MISSION_COUNT_TOOLTIP,
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.MISSION_COUNT,
                 },
             },
             {
