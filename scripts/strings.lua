@@ -12,7 +12,7 @@ local DLC_STRINGS =
 		SEED = "Seed",
 		LOCATION = "Location",
 		SITUATION = "Situation",
-		MISSION_COUNT = "Mission count",
+		MISSION_COUNT = "Mission Count",
 	},
 
 	OPTIONS =
