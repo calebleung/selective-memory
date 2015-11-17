@@ -133,6 +133,14 @@ widgets =
                         },
                     },
                 },
+                tooltip =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.LOCATION_TOOLTIP,
+                },
+                tooltipHeader =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.LOCATION_TOOLTIP,
+                },
             },
             {
                 name = [[locationCmb]],
@@ -231,6 +239,14 @@ widgets =
                         },
                     },
                 },
+                tooltip =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SEED_TOOLTIP,
+                },
+                tooltipHeader =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SEED,
+                },
             },
             {
                 name = [[levelSeedBox]],
@@ -321,6 +337,14 @@ widgets =
                             0.470588237047195,
                         },
                     },
+                },
+                tooltip =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SITUATION_TOOLTIP,
+                },
+                tooltipHeader =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.SITUATION_TOOLTIP,
                 },
             },
             {
@@ -420,6 +444,14 @@ widgets =
                             0.470588237047195,
                         },
                     },
+                },
+                tooltip =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.MISSION_COUNT_TOOLTIP,
+                },
+                tooltipHeader =
+                {
+                    str = STRINGS.SELECTIVE_MEMORY.MODAL.MISSION_COUNT_TOOLTIP,
                 },
             },
             {
