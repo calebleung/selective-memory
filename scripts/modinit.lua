@@ -93,6 +93,9 @@ local function load( modApi, options )
 
     if options["levelSelect"].enabled then
         --enableLevelSelect = true
+
+        -- Achievements don't get reset on mod unload
+        -- So we'll find something else to check for
         local itemdefs = include( scriptPath .. "/itemdefs" )
         for name, itemDef in pairs(itemdefs) do
             modApi:addItemDef( name, itemDef )
