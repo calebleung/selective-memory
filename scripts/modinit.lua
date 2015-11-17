@@ -58,55 +58,11 @@ local function init( modApi )
     } )
 
     modApi:addAchievement( achievementHijack )
-      
-    local scriptPath = modApi:getScriptPath()  
-    modApi:addAbilityDef( "voight_scan", scriptPath .."/voight_scan" )
-    
-    modApi:addGenerationOption("agentsAndItems", STRINGS.XMPL.OPTIONS.ENABLE_AGENTS , STRINGS.XMPL.OPTIONS.ENABLE_AGENTS_TIP)
-    modApi:addGenerationOption("programs", STRINGS.XMPL.OPTIONS.PROGRAMS , STRINGS.XMPL.OPTIONS.PROGRAMS_TIP)
-    modApi:addGenerationOption("daemons", STRINGS.XMPL.OPTIONS.DAEMONS , STRINGS.XMPL.OPTIONS.DAEMONS_TIP)
-    --[[
 
-    local logs = include( scriptPath .. "/logs" )
-    for i,log in ipairs(logs) do      
-        modApi:addLog(log)
-    end
-
-    ]]
 end
 
 -- load may be called multiple times with different options enabled
 local function load( modApi, options )
-
-    local scriptPath = modApi:getScriptPath()
-
-  
-    if options["agentsAndItems"].enabled then
-        local agentdefs = include( scriptPath .. "/agentdefs" )
-        for name, agentDef in pairs(agentdefs) do
-            modApi:addAgentDef( name, agentDef, { name } )
-        end
-        
-        local itemdefs = include( scriptPath .. "/itemdefs" )
-        for name, itemDef in pairs(itemdefs) do
-            modApi:addItemDef( name, itemDef )
-        end        
-    end
-   
-
-    if options["programs"].enabled then
-        local mainframe_abilities = include( scriptPath .. "/mainframe_abilities" )
-        for name, ability in pairs(mainframe_abilities) do
-            modApi:addMainframeAbility( name, ability )
-        end
-    end  
-
-    if options["daemons"].enabled then
-        local npc_abilities = include( scriptPath .. "/npc_abilities" )
-        for name, ability in pairs(npc_abilities) do
-            modApi:addDaemonAbility( name, ability )
-        end    
-    end
     
 end
 
