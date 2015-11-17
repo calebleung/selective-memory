@@ -5,10 +5,13 @@
 local DLC_STRINGS =
 {	           
 	
-	OPTIONS =
+	MODAL =
 	{
-		ENABLE_AGENTS = "Enable new agent and items",
-		ENABLE_AGENTS_TIP = "Bryant is Decker's older brother. His subdermal PDA helps peeking and mission choice.\nReplaces Decker's Daemon scanning augment with one that TAGs guards.",  
+		TITLE = "Selective Memory",
+		DESC = "Input seed, location, and situation data to relive memories of an event.",
+		SEED = "Seed",
+		LOCATION = "Location",
+		SITUATION = "Situation",
 		PROGRAMS = "Enable new program: Lance",
 		PROGRAMS_TIP = "Lance breaks 5 firewalls for 2 PWR. But each use reduces the firewalls broken by 1",
 		DAEMONS = "Enable new Daemon: Infect",

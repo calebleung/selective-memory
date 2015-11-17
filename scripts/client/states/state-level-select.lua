@@ -12,7 +12,7 @@ local serverdefs = include( "modules/serverdefs" )
 local guiex = include( "guiex" )
 local cdefs = include("client_defs")
 
-local stateSignUp = {}
+local stateLevelSelect = {}
 local SITUATIONS = serverdefs.SITUATIONS
 local MAP_LOCATIONS = serverdefs.MAP_LOCATIONS
 
@@ -31,7 +31,7 @@ end
 
 ----------------------------------------------------------------
 
-stateSignUp.onClickCancel = function( self )
+stateLevelSelect.onClickCancel = function( self )
     statemgr.deactivate( self )
 
     local user = savefiles.getCurrentGame()
@@ -42,7 +42,7 @@ stateSignUp.onClickCancel = function( self )
 end
 
 
-stateSignUp.onClickOk = function( self )
+stateLevelSelect.onClickOk = function( self )
 
     local levelSeed = self.emailBox:getText()
 
@@ -53,13 +53,13 @@ stateSignUp.onClickOk = function( self )
     --    return
     --end
 
-    local situationName = self.screen.binder.countryCmb:getText()
+    local situationName = self.screen.binder.situationCmb:getText()
     if not situationName or #situationName == 0 then
         modalDialog.show( STRINGS.SIGNUP.NO_COUNTRY )
         return
     end
 
-    local mapLocation = self.screen.binder.locationsCmb:getIndex()
+    local mapLocation = self.screen.binder.locationCmb:getIndex()
     local missionCount = tonumber( self.screen.binder.missionCountCmb:getText() )
 
     log:write( "Using new level seed..." )
@@ -84,7 +84,7 @@ stateSignUp.onClickOk = function( self )
 end
 
 ----------------------------------------------------------------
-stateSignUp.onLoad = function ( self, dataPath, suppress_map_intro )
+stateLevelSelect.onLoad = function ( self, dataPath, suppress_map_intro )
     self.suppress_map_intro = suppress_map_intro
 
     MOAIFmodDesigner.playSound(  cdefs.SOUND_HUD_MENU_POPUP )
@@ -96,11 +96,11 @@ stateSignUp.onLoad = function ( self, dataPath, suppress_map_intro )
     self.emailBox = self.screen:findWidget("emailBox")
 
     for situationName, situationValue in pairs( SITUATIONS ) do
-        self.screen.binder.countryCmb:addItem( situationValue.tags[1] )
+        self.screen.binder.situationCmb:addItem( situationValue.tags[1] )
     end
 
     for i = 1, #MAP_LOCATIONS do
-        self.screen.binder.locationsCmb:addItem( MAP_LOCATIONS[i].name .. " (" .. MAP_LOCATIONS[i].corpName .. ")" )
+        self.screen.binder.locationCmb:addItem( MAP_LOCATIONS[i].name .. " (" .. MAP_LOCATIONS[i].corpName .. ")" )
     end
 
     for i = 0, 30 do
@@ -118,10 +118,10 @@ stateSignUp.onLoad = function ( self, dataPath, suppress_map_intro )
 end
 
 ----------------------------------------------------------------
-stateSignUp.onUnload = function ( self )
+stateLevelSelect.onUnload = function ( self )
     MOAIFmodDesigner.playSound(  cdefs.SOUND_HUD_MENU_POPDOWN )
     mui.deactivateScreen( self.screen )
     self.screen = nil
 end
 
-return stateSignUp
+return stateLevelSelect
