@@ -13,8 +13,8 @@ local function loadLevelSelect( dataPath, scriptPath )
     local allStates = statemgr.getStates()
 
     for i = 1, #allStates do
-        if allStates[i].name == "maproot" then
-            statemgr.deactivate( allStates[i] ) -- not working?
+        if allStates[i].jet then
+            statemgr.deactivate( allStates[i] )
         end
     end
 
