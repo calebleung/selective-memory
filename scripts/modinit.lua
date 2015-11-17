@@ -18,9 +18,9 @@ local function loadLevelSelect( dataPath, scriptPath )
         end
     end
 
-    stateLoading.loadLevelSelectScreen = function( self, dataPath, suppress_map_intro )
+    stateLoading.loadLevelSelectScreen = function( dataPath, suppress_map_intro )
         local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
-        statemgr.activate( stateLoading, stateLoading:runUnloadThread, stateLevelSelect, dataPath, suppress_map_intro )
+        statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
     end
 
     stateLoading:loadLevelSelect( dataPath, true )

@@ -11,7 +11,6 @@ local util = include("client_util")
 local serverdefs = include( "modules/serverdefs" )
 local guiex = include( "guiex" )
 local cdefs = include("client_defs")
-local print_r = include( "print_r" )
 
 local stateSignUp = {}
 local SITUATIONS = serverdefs.SITUATIONS
