@@ -18,8 +18,8 @@ local DLC_STRINGS =
 	OPTIONS =
 	{
 		ENABLE_LEVEL_SELECT = "Enable level select",
-		ENABLE_LEVEL_SELECT_TIP = "Level select allows you to play any mission at any time.",
-	}
+		ENABLE_LEVEL_SELECT_TIP = "Allows you to play any mission at any time.",
+	},
 
 	AGENTS =
 	{

@@ -7,8 +7,11 @@
 local util = include( "modules/util" )
 
 local enableLevelSelect = false
+local isHijacked = false
 
 local function loadLevelSelect( dataPath, scriptPath )
+
+    log:write( 'level select is ' .. tostring(enableLevelSelect) )
 
     if enableLevelSelect then
         local stateLoading = include( "states/state-loading" )
@@ -26,6 +29,7 @@ local function loadLevelSelect( dataPath, scriptPath )
             statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
         end
 
+        isHijacked = false
         stateLoading:loadLevelSelectScreen( dataPath, true )
     end
 
@@ -56,7 +60,13 @@ local function init( modApi )
     setmetatable( achievementHijack, {__index =
         function( t, k )
             if k == "time_check" then
-                return loadLevelSelect( dataPath, scriptPath )
+                log:write( 'cheevo check!' )
+                if not isHijacked then
+                    isHijacked = true
+                    return loadLevelSelect( dataPath, scriptPath )
+                end
+
+                return 1
             end
         end
     } )
