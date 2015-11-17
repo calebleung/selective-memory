@@ -22,7 +22,7 @@ local function loadLevelSelect( dataPath, scriptPath )
         statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
     end
 
-    stateLoading:loadLevelSelect( dataPath, true )
+    stateLoading:loadLevelSelectScreen( dataPath, true )
 
     return 1
 end
@@ -40,7 +40,7 @@ local function init( modApi )
     -- Load DLC strings.  Must occur before anything else, to avoid non-localized string references.
     -- We always localize to the current locale.
     local DLC_STRINGS = include( scriptPath .. "/strings" )
-    modApi:addStrings( dataPath, "XMPL", DLC_STRINGS )
+    modApi:addStrings( dataPath, "SELECTIVE_MEMORY", DLC_STRINGS )
 
     -- Achievement checks happen on the map screen.
     -- The perfect time to select a level.
