@@ -13,6 +13,14 @@ local function loadLevelSelect( dataPath, scriptPath )
 
     log:write( 'level select is ' .. tostring(enableLevelSelect) )
 
+    local simstore = include( "sim/units/store" )
+
+    for i = #simstore.STORE_ITEM.itemList, 1, -1 do
+        if simstore.STORE_ITEM.itemList[i].augment_achievement_hijack then
+            enableLevelSelect = true
+        end
+    end
+
     if enableLevelSelect then
         local stateLoading = include( "states/state-loading" )
 
@@ -75,13 +83,18 @@ local function init( modApi )
 
     modApi:addGenerationOption("levelSelect", STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT , STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT_TIP)
 
+    local itemdefs = include( scriptPath .. "/itemdefs" )
+    for name, itemDef in pairs(itemdefs) do
+        modApi:addItemDef( name, itemDef )
+    end  
+
 end
 
 -- load may be called multiple times with different options enabled
 local function load( modApi, options )
 
     if options["levelSelect"].enabled then
-        enableLevelSelect = true
+        --enableLevelSelect = true
     end
     
 end
