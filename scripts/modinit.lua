@@ -11,15 +11,18 @@ local isHijacked = false
 
 local function loadLevelSelect( dataPath, scriptPath )
 
-    log:write( 'level select is ' .. tostring(enableLevelSelect) )
-
     local simstore = include( "sim/units/store" )
 
+    isHijacked = false
+
     for i = #simstore.STORE_ITEM.itemList, 1, -1 do
-        if simstore.STORE_ITEM.itemList[i].augment_achievement_hijack then
+        if simstore.STORE_ITEM.itemList[i].name == "Selective Memory Mod" then
             enableLevelSelect = true
+            break
         end
     end
+
+    log:write( 'level select is ' .. tostring(enableLevelSelect) )
 
     if enableLevelSelect then
         local stateLoading = include( "states/state-loading" )
@@ -37,7 +40,6 @@ local function loadLevelSelect( dataPath, scriptPath )
             statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
         end
 
-        isHijacked = false
         stateLoading:loadLevelSelectScreen( dataPath, true )
     end
 
@@ -68,7 +70,6 @@ local function init( modApi )
     setmetatable( achievementHijack, {__index =
         function( t, k )
             if k == "time_check" then
-                log:write( 'cheevo check!' )
                 if not isHijacked then
                     isHijacked = true
                     return loadLevelSelect( dataPath, scriptPath )
@@ -81,20 +82,21 @@ local function init( modApi )
 
     modApi:addAchievement( achievementHijack )
 
-    modApi:addGenerationOption("levelSelect", STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT , STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT_TIP)
-
-    local itemdefs = include( scriptPath .. "/itemdefs" )
-    for name, itemDef in pairs(itemdefs) do
-        modApi:addItemDef( name, itemDef )
-    end  
+    modApi:addGenerationOption("levelSelect", STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT , STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT_TIP) 
 
 end
 
 -- load may be called multiple times with different options enabled
 local function load( modApi, options )
 
+    local scriptPath = modApi:getScriptPath()
+
     if options["levelSelect"].enabled then
         --enableLevelSelect = true
+        local itemdefs = include( scriptPath .. "/itemdefs" )
+        for name, itemDef in pairs(itemdefs) do
+            modApi:addItemDef( name, itemDef )
+        end 
     end
     
 end

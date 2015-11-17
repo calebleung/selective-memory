@@ -11,13 +11,13 @@ local tool_templates =
     -- we need a different way to disable the achievement hijack.
     augment_achievement_hijack = util.extend( commondefs.augment_template )
     {
-        name = "UNUSED ITEM",
+        name = "Selective Memory Mod",
         desc = "You should never see this.",
         flavor = "",   
 
-        ITEM_LIST = false
-        WEAPON_LIST = false
-        AUGMENT_LIST = false
+        ITEM_LIST = true,
+        WEAPON_LIST = false,
+        AUGMENT_LIST = false,
         --profile_icon = "gui/icons/item_icons/items_icon_small/icon-item_generic_arm_small.png",
         --profile_icon_100 = "gui/icons/item_icons/icon-item_generic_arm.png",                
     },  
