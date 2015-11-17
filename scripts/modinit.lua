@@ -18,7 +18,7 @@ local function loadLevelSelect( dataPath, scriptPath )
         end
     end
 
-    stateLoading.loadLevelSelectScreen = function( self, suppress_map_intro )
+    stateLoading.loadLevelSelectScreen = function( self, dataPath, suppress_map_intro )
         local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
         statemgr.activate( stateLoading, stateLoading:runUnloadThread, stateLevelSelect, dataPath, suppress_map_intro )
     end
@@ -47,7 +47,7 @@ local function init( modApi )
     -- The perfect time to select a level.
     local achievementHijack = {}
     achievementHijack.achievementID = 1
-    achievementHijack.time_check = npc_abilities
+    achievementHijack.time_check = nil
 
     setmetatable( achievementHijack, {__index =
         function( t, k )
