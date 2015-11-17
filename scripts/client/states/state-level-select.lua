@@ -22,7 +22,7 @@ local MAP_LOCATIONS = serverdefs.MAP_LOCATIONS
 local function validateSeed( levelSeed )
     -- Seed has to be a number
     local pattern = "^%d$"
-    if levelSeed:match( pattern ) == nil or #levelSeed != 10 then
+    if levelSeed:match( pattern ) == nil or #levelSeed ~= 10 then
         return false, STRINGS.SELECTIVE_MEMORY.ERRORS.SEED
     end
 
