@@ -12,11 +12,14 @@ local DLC_STRINGS =
 		SEED = "Seed",
 		LOCATION = "Location",
 		SITUATION = "Situation",
-		PROGRAMS = "Enable new program: Lance",
-		PROGRAMS_TIP = "Lance breaks 5 firewalls for 2 PWR. But each use reduces the firewalls broken by 1",
-		DAEMONS = "Enable new Daemon: Infect",
-		DAEMONS_TIP = "Infect reduces a random agent's AP by 4 each turn it's active",
+		MISSION_COUNT = "Mission count",
 	},
+
+	OPTIONS =
+	{
+		ENABLE_LEVEL_SELECT = "Enable level select",
+		ENABLE_LEVEL_SELECT_TIP = "Level select allows you to play any mission at any time.",
+	}
 
 	AGENTS =
 	{

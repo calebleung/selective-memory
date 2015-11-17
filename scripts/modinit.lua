@@ -6,23 +6,28 @@
 
 local util = include( "modules/util" )
 
+local enableLevelSelect = false
+
 local function loadLevelSelect( dataPath, scriptPath )
-    local stateLoading = include( "states/state-loading" )
 
-    local allStates = statemgr.getStates()
+    if enableLevelSelect then
+        local stateLoading = include( "states/state-loading" )
 
-    for i = 1, #allStates do
-        if allStates[i].jet then
-            statemgr.deactivate( allStates[i] )
+        local allStates = statemgr.getStates()
+
+        for i = 1, #allStates do
+            if allStates[i].jet then
+                statemgr.deactivate( allStates[i] )
+            end
         end
-    end
 
-    stateLoading.loadLevelSelectScreen = function( dataPath, suppress_map_intro )
-        local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
-        statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
-    end
+        stateLoading.loadLevelSelectScreen = function( dataPath, suppress_map_intro )
+            local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
+            statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
+        end
 
-    stateLoading:loadLevelSelectScreen( dataPath, true )
+        stateLoading:loadLevelSelectScreen( dataPath, true )
+    end
 
     return 1
 end
@@ -58,10 +63,16 @@ local function init( modApi )
 
     modApi:addAchievement( achievementHijack )
 
+    modApi:addGenerationOption("levelSelect", STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT , STRINGS.SELECTIVE_MEMORY.OPTIONS.ENABLE_LEVEL_SELECT_TIP)
+
 end
 
 -- load may be called multiple times with different options enabled
 local function load( modApi, options )
+
+    if options["levelSelect"].enabled then
+        enableLevelSelect = true
+    end
     
 end
 

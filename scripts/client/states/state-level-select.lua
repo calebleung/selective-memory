@@ -100,7 +100,7 @@ stateLevelSelect.onLoad = function ( self, dataPath, suppress_map_intro )
     end
 
     for i = 1, #MAP_LOCATIONS do
-        self.screen.binder.locationCmb:addItem( MAP_LOCATIONS[i].name .. " (" .. MAP_LOCATIONS[i].corpName .. ")" )
+        self.screen.binder.locationCmb:addItem( MAP_LOCATIONS[i].name .. " (" .. util.util.toupper(MAP_LOCATIONS[i].corpName) .. ")" )
     end
 
     for i = 0, 30 do
