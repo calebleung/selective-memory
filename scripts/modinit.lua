@@ -13,8 +13,6 @@ local function loadLevelSelect( dataPath, scriptPath )
 
     local simstore = include( "sim/units/store" )
 
-    isHijacked = false
-
     for i = #simstore.STORE_ITEM.itemList, 1, -1 do
         if simstore.STORE_ITEM.itemList[i].name == "Selective Memory Mod" then
             enableLevelSelect = true
@@ -42,6 +40,8 @@ local function loadLevelSelect( dataPath, scriptPath )
 
         stateLoading:loadLevelSelectScreen( dataPath, true )
     end
+
+    isHijacked = false
 
     return 1
 end
