@@ -35,10 +35,11 @@ stateLevelSelect.onClickCancel = function( self )
     statemgr.deactivate( self )
 
     local user = savefiles.getCurrentGame()
-    local campaign = user.data.saveSlots[ user.data.currentSaveSlot ]
+    user:save()
 
-    local stateMapScreen = include( "states/state-map-screen" )
-    statemgr.activate( stateMapScreen(), campaign, self.suppress_map_intro )
+    local stateLoading = include( "states/state-loading" )
+    statemgr.deactivate( self )
+    stateLoading:loadFrontEnd()
 end
 
 
