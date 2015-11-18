@@ -1,5 +1,5 @@
 # Selective Memory
-### A [level select] mod for [Invisible Inc.](http://store.steampowered.com/app/243970).
+A [level select] mod for [Invisible Inc.](http://store.steampowered.com/app/243970).
 
 ## Issues
 
