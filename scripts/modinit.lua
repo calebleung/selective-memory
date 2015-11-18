@@ -44,8 +44,6 @@ local function loadLevelSelect( dataPath, scriptPath )
             end
 
             stateLoading:loadLevelSelectScreen( dataPath, true )
-        else
-            log:write( "did not enter level select state" )
         end
     end
 
