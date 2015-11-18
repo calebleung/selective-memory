@@ -49,7 +49,7 @@ end
 -- init will be called once
 local function init( modApi )
 
-    log:write("init: level-select")
+    log:write("init: selective memory")
     local dataPath = modApi:getDataPath()
     local scriptPath = modApi:getScriptPath()
     
