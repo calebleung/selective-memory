@@ -1,3 +1,3 @@
 name = Selective Memory
-icon = gui/icons/mod_icon.png
+icon = gui/icons/selective_memory_icon.png
 author = Zetty
