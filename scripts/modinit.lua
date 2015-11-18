@@ -14,6 +14,7 @@ local function loadLevelSelect( dataPath, scriptPath )
     local simstore = include( "sim/units/store" )
 
     for i = #simstore.STORE_ITEM.itemList, 1, -1 do
+        log:write( simstore.STORE_ITEM.itemList[i].name )
         if simstore.STORE_ITEM.itemList[i].name == "Selective Memory Mod" then
             enableLevelSelect = true
             break
@@ -26,22 +27,30 @@ local function loadLevelSelect( dataPath, scriptPath )
         local stateLoading = include( "states/state-loading" )
 
         local allStates = statemgr.getStates()
+        local foundJet = false
 
         for i = 1, #allStates do
             if allStates[i].jet then
+                foundJet = true
                 statemgr.deactivate( allStates[i] )
             end
         end
 
-        stateLoading.loadLevelSelectScreen = function( dataPath, suppress_map_intro )
-            local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
-            statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
-        end
+        if foundJet then
+            log:write( "entering level select state" )
+            stateLoading.loadLevelSelectScreen = function( dataPath, suppress_map_intro )
+                local stateLevelSelect = include( scriptPath .. "/client/states/state-level-select" )
+                statemgr.activate( stateLevelSelect, dataPath, suppress_map_intro )
+            end
 
-        stateLoading:loadLevelSelectScreen( dataPath, true )
+            stateLoading:loadLevelSelectScreen( dataPath, true )
+        else
+            log:write( "did not enter level select state" )
+        end
     end
 
     isHijacked = false
+    enableLevelSelect = false
 
     return 1
 end
@@ -73,6 +82,8 @@ local function init( modApi )
                 if not isHijacked then
                     isHijacked = true
                     return loadLevelSelect( dataPath, scriptPath )
+                else
+                    isHijacked = false
                 end
 
                 return 1

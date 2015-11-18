@@ -32,8 +32,6 @@ end
 ----------------------------------------------------------------
 
 stateLevelSelect.onClickCancel = function( self )
-    statemgr.deactivate( self )
-
     local user = savefiles.getCurrentGame()
     user:save()
 
