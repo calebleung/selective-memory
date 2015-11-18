@@ -30,6 +30,7 @@ local DLC_STRINGS =
 		SEED = "Seed must be a 10-digit integer.",
 		LOCATION = "A location must be chosen.",
 		SITUATION = "A situation must be selected.",
+		MISSION_COUNT = "A mission count must be selected."
 	},
 
 }

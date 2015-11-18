@@ -68,7 +68,8 @@ stateLevelSelect.onClickOk = function( self )
     end
 
     if not missionCount then
-        missionCount = 0
+        modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.MISSION_COUNT )
+        return
     end
 
     log:write( "Using new level seed..." )

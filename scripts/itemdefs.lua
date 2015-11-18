@@ -15,6 +15,7 @@ local tool_templates =
         desc = "You should never see this.",
         flavor = "",   
 
+        soldAfter = math.maxinteger,
         ITEM_LIST = true,
         WEAPON_LIST = false,
         AUGMENT_LIST = false,
