@@ -4,7 +4,7 @@ A [level select] mod for [Invisible Inc.](http://store.steampowered.com/app/2439
 ## Issues
 
 * Probably not getting all the possible values used for generation.
-* * Of note, I recall seeing a difficulty value for days/hours passed which may be separate from the mission count.
+ * Of note, I recall seeing a difficulty value for days/hours passed which may be separate from the mission count.
 * On mission completion, the items (and presumably the cash) are not saved.
 
 ## Technical
