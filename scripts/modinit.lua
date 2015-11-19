@@ -59,7 +59,7 @@ local function init( modApi )
     log:write("init: selective memory")
     local dataPath = modApi:getDataPath()
     local scriptPath = modApi:getScriptPath()
-    
+
     -- Mount data.
     KLEIResourceMgr.MountPackage( dataPath .. "/gui.kwad", "data" )
 
