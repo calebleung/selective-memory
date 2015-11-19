@@ -48,6 +48,7 @@ stateLevelSelect.onClickOk = function( self )
 
     local mapLocation = self.screen.binder.locationCmb:getIndex()
     local situationName = self.screen.binder.situationCmb:getText()
+    local difficultyVal = tonumber( self.screen.binder.difficultyCmb:getText() )
     local missionCount = tonumber( self.screen.binder.missionCountCmb:getText() )
 
 
@@ -66,6 +67,11 @@ stateLevelSelect.onClickOk = function( self )
         return
     end
 
+    if not difficultyVal then
+        modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.DIFFICULTY )
+        return
+    end
+
     if not missionCount then
         modalDialog.show( STRINGS.SELECTIVE_MEMORY.ERRORS.MISSION_COUNT )
         return
@@ -80,7 +86,7 @@ stateLevelSelect.onClickOk = function( self )
         campaign.seed = levelSeed
         campaign.situation = {}
         campaign.situation.name = situationName
-        campaign.situation.difficulty = 1
+        campaign.situation.difficulty = difficultyVal
         campaign.situation.mapLocation = mapLocation     -- location matters to seed up to corporation, not location-location
         campaign.missionCount = missionCount -- Mission count affects guard and prop placement (but only if it's the first mission?)
         campaign.uiMemento = nil
@@ -114,6 +120,10 @@ stateLevelSelect.onLoad = function ( self, dataPath, suppress_map_intro )
 
     for i = 0, 30 do
         self.screen.binder.missionCountCmb:addItem( tostring(i) )
+    end
+
+    for i = 0, 20 do
+        self.screen.binder.difficultyCmb:addItem( tostring(i) )
     end
 
     self.screen.binder.cancelBtn.binder.btn.onClick = util.makeDelegate(self, "onClickCancel")

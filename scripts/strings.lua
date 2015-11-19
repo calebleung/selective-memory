@@ -17,6 +17,8 @@ local DLC_STRINGS =
 		SITUATION_TOOLTIP = "What's your mission?",
 		MISSION_COUNT = "Mission Count",
 		MISSION_COUNT_TOOLTIP = "First mission triggers intro dialog. Other missions can spawn side missions and have different prop/guard/camera positions.",
+		DIFFICULTY = "Difficulty",
+		DIFFICULTY_TOOLTIP = "Adds extra obstacles to avoid.",
 	},
 
 	OPTIONS =
@@ -30,7 +32,8 @@ local DLC_STRINGS =
 		SEED = "Seed must be a 10-digit integer.",
 		LOCATION = "A location must be chosen.",
 		SITUATION = "A situation must be selected.",
-		MISSION_COUNT = "A mission count must be selected."
+		DIFFICULTY = "A difficulty value must be selected.",
+		MISSION_COUNT = "A mission count must be selected.",
 	},
 
 }
