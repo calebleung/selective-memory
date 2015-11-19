@@ -122,7 +122,7 @@ stateLevelSelect.onLoad = function ( self, dataPath, suppress_map_intro )
         self.screen.binder.missionCountCmb:addItem( tostring(i) )
     end
 
-    for i = 0, 20 do
+    for i = 1, 20 do
         self.screen.binder.difficultyCmb:addItem( tostring(i) )
     end
 
